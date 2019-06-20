@@ -1,4 +1,4 @@
-(defproject cljfmt "0.6.4-mg"
+(defproject cljfmt-mg "0.6.4"
   :description "A library for formatting Clojure code. Forked because of opinions about spaces."
   :url "https://github.com/markusgustavssonking/cljfmt"
   :scm {:dir ".."}
