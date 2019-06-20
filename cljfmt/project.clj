@@ -1,6 +1,6 @@
-(defproject cljfmt "0.6.4"
-  :description "A library for formatting Clojure code"
-  :url "https://github.com/weavejester/cljfmt"
+(defproject cljfmt "0.6.4-mg"
+  :description "A library for formatting Clojure code. Forked because of opinions about spaces."
+  :url "https://github.com/markusgustavssonking/cljfmt"
   :scm {:dir ".."}
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
@@ -21,5 +21,6 @@
                                  :optimizations :none}}}
               :test-commands
               {"dev" ["node" "target/out/tests.js"]}}
-  :profiles
-  {:provided {:dependencies [[org.clojure/clojurescript "1.10.339"]]}})
+  :profiles {:provided {:dependencies [[org.clojure/clojurescript "1.10.339"]]}}
+  :deploy-repositories {"clojars" {:url "https://clojars.org/repo"
+                                   :sign-releases false}})

@@ -180,10 +180,15 @@
        (count)
        (dec)))
 
+(defn- token? [zloc]
+  (= (z/tag zloc) :token))
+
 (defn- list-indent [zloc]
   (if (> (index-of zloc) 1)
     (-> zloc zip/leftmost z/right margin)
-    (coll-indent zloc)))
+    (if (token? (z/left zloc))
+      (inc (coll-indent zloc))
+      (coll-indent zloc))))
 
 (def indent-size 2)
 
@@ -214,9 +219,6 @@
   (cond
     (symbol? key) (= key sym)
     (pattern? key) (re-find key (str sym))))
-
-(defn- token? [zloc]
-  (= (z/tag zloc) :token))
 
 (defn- token-value [zloc]
   (and (token? zloc) (z/sexpr zloc)))
